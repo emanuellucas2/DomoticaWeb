@@ -50,6 +50,7 @@
   <main>
     <div class="container-fluid">
       <!-- slider -->
+      
       <div id="mainSlider" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#mainSlider" data-slide-to="0" class="active"></li>
@@ -65,7 +66,7 @@
             <div class="carousel-caption d-md-block">
               <h2>Quer diminuir sua conta de luz?</h5>
               <p>Conte conosco, podemos identificar as maiores fontes de consumo elétrico da sua residência.</p>
-              <a href="#" class="main-btn">Saiba mais</a>
+              <a  id="about-menu" href="#" class="main-btn nav-item">Saiba mais</a>
             </div>
           </div>
           <div class="carousel-item">
@@ -73,7 +74,7 @@
             <div class="carousel-caption d-md-block">
               <h2>Está com alguma dúvida sobre nossos serviços?</h5>
               <p>Nossa equipe está disponível agora para conversar com você.</p>
-              <a href="#" class="main-btn">Entre em contato</a>
+              <a id="contact-menu" href="#" class="main-btn nav-item">Entre em contato</a>
             </div>
           </div>
           <div class="carousel-item">
@@ -81,7 +82,7 @@
             <div class="carousel-caption d-md-block">
               <h2>Já tem o produto?</h5>
               <p>Faça login e confira o consumo elétrico de cada eletrodoméstico.</p>
-              <a href="#" class="main-btn">Login</a>
+              <a id="portfolio-menu" href="#" class="main-btn nav-item">Login</a>
             </div>
           </div>
         </div>
@@ -107,17 +108,45 @@
               <div class="col-md-6">
                 <h3 class="about-title">Uma empresa que pensa no futuro</h3>
                 <p>Nasceu da Universidade Federal de Santa Catarina.</p>
+                <p>Costuma ser difícil identificar as principais fontes de consumo e por isso é interessante ter uma leitura individualizada por eletrodoméstico.</p>
+                <p>Nosso sistema lerá os sinais de tensão e corrente dos principais dispositivos elétricos da sua casa e fará o cálculo do gasto. </p>
+                <p>Então basta adquirir nosso produto e fazer o login nesse mesmo site e poderá acompanhar o consumo.</p>
                 <p>Veja outros diferenciais:</p>
                 <ul id="about-list">
                   <li><i class="fas fa-check"></i> Cálculo dos diferentes tipos de potência</li>
                   <li><i class="fas fa-check"></i> Layout simples e de fácil entendimento</li>
                   <li><i class="fas fa-check"></i> Integração com diversos sistemas do mercado</li>
                   <li><i class="fas fa-check"></i> Sistema de pagamento próprio</li>
-                  <li><i class="fas fa-check"></i> Desenvolvimento com metodologia ágil</li>
                 </ul>
               </div>
             </div>
           </div>
+      </div>
+      <!-- Serviços da empresa -->
+      
+      
+      <!-- Dados da empresa -->
+      <div id="data-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-xs-6 circle-box">
+              <div id="circleA"></div>
+              <p>Projetos entregues</p>
+            </div>
+            <div class="col-md-3 col-xs-6 circle-box">
+              <div id="circleB"></div>
+              <p>Clientes Felizes</p>
+            </div>
+            <div class="col-md-3 col-xs-6 circle-box">
+              <div id="circleC"></div>
+              <p>Colaboradores</p>
+            </div>  
+            <div class="col-md-3 col-xs-6 circle-box">
+              <div id="circleD"></div>
+              <p>Parceiros</p>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- Time -->
       <div id="team-area">
@@ -129,7 +158,7 @@
             <div class="d-flex justify-content-center">
             <div class="col-md-3">
               <div class="card">
-                <img src="img/nazareth.jpeg" class="card-img-top" alt="Imagem de Perfil 1">
+                <img src="img/nazareth.jpeg" class="card-img-top" alt="Imagem de Perfil 1" height="400">
                 <div class="card-body">
                   <h5 class="card-title">Lucas Nazareth</h5>
                   <p class="card-text">Chefe</p>
@@ -138,7 +167,7 @@
             </div>
             <div class="col-md-3">
               <div class="card">
-                <img src="img/emanuel.jpeg" class="card-img-top" alt="Imagem de Perfil 2">
+                <img src="img/emanuel.jpeg" class="card-img-top" alt="Imagem de Perfil 2" height="400">
                 <div class="card-body">
                   <h5 class="card-title">Emanuel Lucas</h5>
                   <p class="card-text">Desenvolvedor</p>
@@ -147,10 +176,10 @@
             </div>
             <div class="col-md-3">
               <div class="card">
-                <img src="img/jefferson.jpeg" class="card-img-top" alt="Imagem de Perfil 3">
+                <img src="img/jefferson.jpeg" class="card-img-top" alt="Imagem de Perfil 3" height="400">
                 <div class="card-body">
                   <h5 class="card-title">Jefferson Dantas</h5>
-                  <p class="card-text">Administrador</p>
+                  <p class="card-text">Desenvolvedor</p>
                 </div>
               </div>
             </div>
@@ -158,13 +187,17 @@
           </div>
         </div>
       </div>
-      <!-- Newsletter -->
-      <div id="news-area">
+      <!-- Trabalhe conosco -->
+
+      
+      <!-- Portfólio -->
+      <div id="portfolio-area">
         <div class="container">
           <div class="col-md-12">
             <h3 class="main-title">Login</h3>
           </div>
           <form id="form_login" action="login.php" method="POST">
+                <center>
                 <?php if(isset($resultado) && $resultado["cod"] == 0):?>
                   <div class="alert alert-danger">
                       <?php echo $resultado["msg"]; ?>
@@ -177,10 +210,25 @@
                 <br>
                 <br>
                 <button type="submit" class="main-btn" id="submeter">Login</button>
-
+                </center>
           </form>
         </div>
       </div>
+      <!-- Newsletter -->
+      <div id="news-area">
+        <div class="container">
+          <div class="col-md-12">
+            <h3 class="main-title">Fique por dentro das novidades</h3>
+          </div>
+          <p>Assine nossa lista de e-mails e receba notícias de novos projetos desenvolvidos</p>
+          <form action="">
+            <input type="text" class="form-control" id="email-input" name="email" placeholder="Seu melhor e-mail">
+            <input type="submit" id="news-btn" value="Inscrever">
+          </form>
+        </div>
+      </div>
+      <!-- Call to Action -->
+
   <!-- Rodapé -->
   <footer>
     <div id="contact-area">
@@ -191,7 +239,7 @@
             </div>
             <div class="col-md-4 contact-box">
               <i class="fas fa-phone"></i>
-              <p><span class="contact-tile">Ligue para:</span> (47)99999-9999</p>
+              <p><span class="contact-tile">Ligue para:</span> (47)99162-2079</p>
               <p><span class="contact-tile">Horários:</span> 8:00 - 19:00</p>
             </div>
             <div class="col-md-4 contact-box">
@@ -202,13 +250,31 @@
               <i class="fas fa-map-marker-alt"></i>
               <p><span class="contact-tile">Venha tomar um café:</span> Rua João Pessoa - 1900</p>
             </div>
+            <div class="col-md-6" id="msg-box">
+              <p>Ou nos deixe uma mensagem:</p>
+            </div>
+            <div class="col-md-6" id="contact-form">
+              <form action="">
+                <input type="text" class="form-control" placeholder="E-mail" name="email">
+                <input type="text" class="form-control" placeholder="Assunto" name="subject">
+                <textarea class="form-control" rows="3" placeholder="Sua mensagem..." name="message"></textarea>
+                <input type="submit" class="main-btn">
+              </form>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div id="copy-area">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <p>Desenvolvido através da <a href="https://www.horadecodar.com.br" target="_blank">hDC Agency</a> &copy; 2021</p>
+            </div>
+        </div>
       </div>
     </div>
   </footer>
   <!-- Scripts do projeto -->
   <script src="js/scripts.js"></script>
 </body>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>

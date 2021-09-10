@@ -24,9 +24,8 @@
 	  		$qtd = count($result);
 	  		if($qtd == 1){
 
-	  			$resultado["msg"] = "Usuario encontrado";
-	  			$resultado["cod"] = 1;
-
+	  			header("Location: usuario.html");
+	  			
 	  		}else{
 
 	  			$resultado["msg"] = "Email e Senha não conferem!";
