@@ -22,10 +22,28 @@
 	  		// set the resulting array to associative
 	  		$result = $stmt->fetchAll();
 	  		$qtd = count($result);
+	
+
 	  		if($qtd == 1){
 
-	  			header("Location: usuario.html");
-	  			
+	  			$Usuario_id = $result[0]["codigo"];
+
+
+	  			$stmt2 = $conn->prepare("SELECT * FROM Amostras WHERE Usuario_id=:Usuario_id");
+	  			$stmt2->bindParam(':Usuario_id',$Usuario_id, PDO::PARAM_STR);
+	  			$stmt2->execute();
+
+	  			// set the resulting array to associative
+	  			$result2["amostras"] = $stmt2->fetchAll();
+
+
+	  			/*echo "<pre>";
+	  			print_r($result2["amostras"]);
+	  			echo "</pre>";
+	  			exit;*/
+
+	  			include("usuario.php");
+
 	  		}else{
 
 	  			$resultado["msg"] = "Email e Senha não conferem!";
@@ -41,5 +59,5 @@
 
 	}
 
-	include("index.php");	
+	//include("index.php");	
 ?>	

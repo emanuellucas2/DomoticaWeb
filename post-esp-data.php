@@ -8,15 +8,15 @@ $dbname = "Domotica";
 
 $api_key_value = "tPmAT5Ab3j7F9";
 
-$api_key= $eletro = $Usuario_id = $potAtiva = $potAparente = "";
+$api_key= $eletro = $Usuario_id = $pot_ativa = $pot_aparente = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $api_key = test_input($_POST["api_key"]);
     if($api_key == $api_key_value) {
         $eletro = test_input($_POST["eletro"]);
         $Usuario_id = test_input($_POST["Usuario_id"]);
-        $potAtiva = test_input($_POST["potAtiva"]);
-        $potAparente = test_input($_POST["potAparente"]);
+        $potAtiva = test_input($_POST["pot_ativa"]);
+        $potAparente = test_input($_POST["pot_aparente"]);
         
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Connection failed: " . $conn->connect_error);
         } 
         
-        $sql = "INSERT INTO Amostra (eletro, Usuario_id, potAtiva, potAparente)
-        VALUES ('" . $eletro . "', '" . $Usuario_id . "', '" . $potAtiva . "', '" . $potAparente . "')";
+        $sql = "INSERT INTO Amostras (eletro, Usuario_id, pot_ativa, pot_aparente)
+        VALUES ('" . $eletro . "', '" . $Usuario_id . "', '" . $pot_ativa . "', '" . $pot_aparente . "')";
         
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
