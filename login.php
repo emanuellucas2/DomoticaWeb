@@ -1,5 +1,8 @@
 <?php
 
+	
+	ob_start();
+
 	if(count($_POST)> 0){
 
 		$email = $_POST["email"];
@@ -36,11 +39,7 @@
 	  			// set the resulting array to associative
 	  			$result2["amostras"] = $stmt2->fetchAll();
 
-
-	  			/*echo "<pre>";
-	  			print_r($result2["amostras"]);
-	  			echo "</pre>";
-	  			exit;*/
+	  			ob_end_clean();
 
 	  			include("usuario.php");
 

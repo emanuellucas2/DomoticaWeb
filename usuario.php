@@ -77,18 +77,22 @@
                   <th style='text-align:center;vertical-align:middle'>Custo</th>
                 </tr>
               </thead>
+              <?php $kwh = 0;?>
+              <?php $valor = 0;?>
                 <?php foreach($result2["amostras"] as $s): ?>
                   <?php if($r["eletro"] == $s["eletro"]):?>
                   <tbody>
                     <tr>
-                      <th style='text-align:center;vertical-align:middle'><VAr><?= $r["hora"];?></VAr></th>
-                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format($r["pot_ativa"],5);?></VAr></td>
-                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format($r["pot_aparente"],5);?></VAr></td>
-                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format(sqrt($r["pot_aparente"]*$r["pot_aparente"] - $r["pot_ativa"]*$r["pot_ativa"]), 5);?></VAr></td>
-                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format($r["pot_ativa"]/$r["pot_aparente"],3);?></VAr></td>
-                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format($r["pot_ativa"]*0.833,5);?></VAr></td>
-                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format($r["pot_ativa"]*0.833*0.53,2);?></VAr></td>
+                      <th style='text-align:center;vertical-align:middle'><VAr><?= $s["hora"];?></VAr></th>
+                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format($s["pot_ativa"],5);?></VAr></td>
+                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format($s["pot_aparente"],5);?></VAr></td>
+                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format(sqrt($s["pot_aparente"]*$r["pot_aparente"] - $r["pot_ativa"]*$r["pot_ativa"]), 5);?></VAr></td>
+                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format($s["pot_ativa"]/$r["pot_aparente"],3);?></VAr></td>
+                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format($s["pot_ativa"]*$s["micro"]/3600,5);?></VAr></td>
+                      <td style='text-align:center;vertical-align:middle'><VAr><?= number_format($s["pot_ativa"]*$s["micro"]/3600*0.53,2);?></VAr></td>
                     </tr>
+                        <?php $kwh = $kwh + $s["pot_ativa"]*$s["micro"]/3600;?>
+                        <?php $valor = $valor + $s["pot_ativa"]*$s["micro"]/3600*0.53;?>
                   <?php endif;?>
                 <?php endforeach; ?>
               <tfoot class="table-dark">
@@ -103,6 +107,13 @@
                 </tr>
               </tfoot>
             </table>
+            <br>
+            <div class="col-md-6" id="msg-box">
+              <p>kwh total: <?= number_format($kwh,5);?></p>
+            </div>
+            <div class="col-md-6" id="msg-box">
+              <p>Valot total: R$ <?= number_format($valor,2);?></p>
+            </div>
         <?php endif;?>
       <?php endforeach; ?>
       <br>
